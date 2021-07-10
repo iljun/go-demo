@@ -5,7 +5,6 @@ import (
 	"gorm.io/driver/mysql"
 	"gorm.io/gorm"
 	"iljun.me/demo/pkg/config"
-	"iljun.me/demo/pkg/dao"
 	"iljun.me/demo/pkg/model"
 )
 
@@ -13,7 +12,7 @@ type UserMySqlDao struct {
 	mySqlClient *gorm.DB
 }
 
-func (dao UserMySqlDao) NewMySqlDao(config config.Config) dao.UserDao {
+func (dao UserMySqlDao) NewMySqlDao(config config.Config) UserMySqlDao {
 	dsn := fmt.Sprintf("%s:%s@tcp(%s:%s)/%s",
 		config.MySqlUserName,
 		config.MySqlPassword,

@@ -14,7 +14,5 @@ type UserDao interface {
 }
 
 func NewUserDao(config config.Config) UserDao {
-	dao := mysql.UserMySqlDao{}
-	client := dao.NewMySqlDao(config)
-	return client
+	return mysql.UserMySqlDao{}.NewMySqlDao(config)
 }
